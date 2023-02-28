@@ -1,4 +1,4 @@
-import { useEffect, useState, Suspense } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 import ImageList from '@mui/material/ImageList';
@@ -6,7 +6,6 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { color } from "@mui/system";
 
 interface itemType{
   img: string;
@@ -37,14 +36,14 @@ const App = () =>{
       
       item.id = index;
       item.name = 'Image '+index;
-      if(item.img.substr(12, 7) == 'youtube'){
+      if(item.img.substr(12, 7) === 'youtube'){
         setVideoId(item.img.substr(30));
         item.img = `https://img.youtube.com/vi/${videoId}/default.jpg?w=248&fit=crop&auto=format`
       }
     });
     setNewData(data);
     
-  },[data])
+  },[data]);
 
   function Image({ src, alt } : { src:string, alt: string}) {
     const [loaded, setLoaded] = useState(true);
