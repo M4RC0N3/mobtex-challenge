@@ -29,7 +29,7 @@ const App = () =>{
 
   window.addEventListener('load',async()=>{
     loadData();
-  }) 
+  });
 
   useEffect(()=>{
     data.forEach((item: itemType, index:number)=>{
