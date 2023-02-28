@@ -16,7 +16,7 @@ interface itemType{
 const App = () =>{
   const [data, setData] = useState([]);
   const [newData, setNewData] = useState([])
-  const [videoId, setVideoId] = useState('');
+
   const loadData = async () => {
     try{
       const result = await axios.get("https://app.olimpiadas.app/teste");
@@ -30,23 +30,20 @@ const App = () =>{
   window.addEventListener('load',async()=>{
     loadData();
   }) 
-// eslint-disable-next-line react-hooks/exhaustive-deps
 
   useEffect(()=>{
     data.forEach((item: itemType, index:number)=>{
-      console.log(item);
-      
       item.id = index;
       item.name = 'Image '+index;
       if(item.img.substr(12, 7) === 'youtube'){
-        setVideoId(item.img.substr(30));
+        let videoId:string = item.img.substr(30);
         item.img = `https://img.youtube.com/vi/${videoId}/default.jpg?w=248&fit=crop&auto=format`
       }
     });
     setNewData(data);
-    
+
   },[data]);
-  
+
   function Image({ src, alt } : { src:string, alt: string}) {
     const [loaded, setLoaded] = useState(true);
 
