@@ -44,7 +44,7 @@ const App = () =>{
     setNewData(data);
     
   },[data]);
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
   function Image({ src, alt } : { src:string, alt: string}) {
     const [loaded, setLoaded] = useState(true);
 
