@@ -30,6 +30,8 @@ const App = () =>{
   window.addEventListener('load',async()=>{
     loadData();
   }) 
+// eslint-disable-next-line react-hooks/exhaustive-deps
+
   useEffect(()=>{
     data.forEach((item: itemType, index:number)=>{
       console.log(item);
@@ -44,7 +46,7 @@ const App = () =>{
     setNewData(data);
     
   },[data]);
-// eslint-disable-next-line react-hooks/exhaustive-deps
+  
   function Image({ src, alt } : { src:string, alt: string}) {
     const [loaded, setLoaded] = useState(true);
 
